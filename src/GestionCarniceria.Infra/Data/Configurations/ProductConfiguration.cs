@@ -30,6 +30,10 @@ namespace GestionCarniceria.Infra.Data.Configurations
                 .WithOne(pl => pl.Product)
                 .HasForeignKey(pl => pl.ProductId)
                 .OnDelete(DeleteBehavior.Cascade);
+            builder.HasMany(p => p.PriceHistory)
+                .WithOne(ph => ph.Product)
+                .HasForeignKey(ph => ph.ProductId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

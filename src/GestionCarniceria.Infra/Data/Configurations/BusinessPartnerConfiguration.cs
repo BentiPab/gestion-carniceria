@@ -15,7 +15,7 @@ namespace GestionCarniceria.Infra.Data.Configurations
             builder.ToTable("BusinessPartners")
                .HasDiscriminator<string>("PartnerType")
                .HasValue<Supplier>("Supplier")
-               .HasValue<Client>("Client");
+               .HasValue<Branch>("Branch");
             builder.HasKey(b => b.Id);
             builder.Property(b => b.Name).IsRequired().HasMaxLength(100);
             builder.HasMany(b => b.PriceLists)
