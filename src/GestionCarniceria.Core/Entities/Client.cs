@@ -1,9 +1,9 @@
 ﻿namespace GestionCarniceria.Core.Entities
 {
-    public class Client : BusinessPartner
+    public class Client : BaseEntity
     {
-        public int Code { get; set; }
-        public ICollection<Sale> Sales { get; set; } = new List<Sale>();
+        public string Name { get; set; } = string.Empty;
+        public ICollection<Branch> Branches { get; set; } = new List<Branch>();
 
 
     }
