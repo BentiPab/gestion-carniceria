@@ -9,6 +9,6 @@
         public int SupplierId { get; set; }
         public Supplier Supplier { get; set; } = null!;
 
-        public ICollection<PurchaseDetail> PurchaseDetails { get; set; } = new List<PurchaseDetail>();
+        public ICollection<TransactionDetail> PurchaseDetails { get; set; } = new List<TransactionDetail>();
     }
 }

@@ -2,9 +2,9 @@
 
 namespace GestionCarniceria.Core.Interfaces
 {
-    public interface IPurchaseDetailRepository : IBaseRepository<PurchaseDetail>
+    public interface IPurchaseDetailRepository : IBaseRepository<TransactionDetail>
     {
-        Task<IEnumerable<PurchaseDetail>> GetPurchaseDetailsByPurchaseIdAsync(int purchaseId);
+        Task<IEnumerable<TransactionDetail>> GetPurchaseDetailsByPurchaseIdAsync(int purchaseId);
 
     }
 }

@@ -10,11 +10,15 @@ namespace GestionCarniceria.Infra.Data.Configurations
         {
             builder.HasKey(p => p.Id);
 
-            builder.HasMany(p => p.Purchases)
+            builder.HasMany(s => s.Purchases)
                    .WithOne(p => p.Supplier)
                    .HasForeignKey(p => p.SupplierId)
                    .OnDelete(DeleteBehavior.Cascade);
-
+            
+            builder.HasMany(s => s.PriceList)
+                .WithOne(p => p.Supplier)
+                .HasForeignKey(p => p.SupplierId)
+                .OnDelete(DeleteBehavior.Cascade);  
         }
     }
 }

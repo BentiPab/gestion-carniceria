@@ -5,10 +5,10 @@
 
         public DateTime SaleDate { get; set; }
         public decimal TotalAmount { get; set; }
+        public int BuyerId { get; set; }
+        public Branch Buyer { get; set; } = null!;
+        public string TruckLicensePlate { get; set; } = string.Empty;
 
-        public int SupplierId { get; set; }
-        public Supplier Supplier { get; set; } = null!;
-
-        public ICollection<PurchaseDetail> PurchaseDetails { get; set; } = new List<PurchaseDetail>();
+        public ICollection<TransactionDetail> SaleDetails { get; set; } = new List<TransactionDetail>();
     }
 }

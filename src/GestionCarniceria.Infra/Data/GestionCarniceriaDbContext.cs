@@ -12,12 +12,12 @@ namespace GestionCarniceria.Infra.Data
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
-        public DbSet<PurchaseDetail> PurchaseDetails { get; set; }
+        public DbSet<TransactionDetail> PurchaseDetails { get; set; }
         public DbSet<Purchase> Purchases { get; set; }
 
         public DbSet<Client> Clients { get; set; }
         public DbSet<Sale> Sales { get; set; }
-        public DbSet<PriceList> PriceLists { get; set; }
+        public DbSet<PriceAgreement> PriceLists { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
