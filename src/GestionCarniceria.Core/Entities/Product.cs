@@ -7,8 +7,8 @@
         public int StockInKg { get; set; }
         public string Category { get; set; } = string.Empty;
         public int SalePrice { get; set; }
-        public ICollection<PurchaseDetail> PurchaseDetails { get; set; } = new List<PurchaseDetail>();
-        public ICollection<PriceList> PriceLists { get; set; } = new List<PriceList>();
+        public ICollection<TransactionDetail> PurchaseDetails { get; set; } = new List<TransactionDetail>();
+        public ICollection<PriceAgreement> PriceLists { get; set; } = new List<PriceAgreement>();
         public ICollection<PriceHistory> PriceHistory { get; set; } = new List<PriceHistory>();
 
     }

@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GestionCarniceria.Infra.Repositories
 {
-    public class PurchaseDetailRepository : BaseRepository<PurchaseDetail>, IPurchaseDetailRepository
+    public class PurchaseDetailRepository : BaseRepository<TransactionDetail>, IPurchaseDetailRepository
     {
         public PurchaseDetailRepository(GestionCarniceriaDbContext context) : base(context)
         {
         }
 
-        public async Task<IEnumerable<PurchaseDetail>> GetPurchaseDetailsByPurchaseIdAsync(int purchaseId)
+        public async Task<IEnumerable<TransactionDetail>> GetPurchaseDetailsByPurchaseIdAsync(int purchaseId)
         {
             return await _context.PurchaseDetails
                 .Where(pd => pd.PurchaseId == purchaseId)

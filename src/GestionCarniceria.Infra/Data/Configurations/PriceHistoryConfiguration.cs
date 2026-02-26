@@ -12,6 +12,9 @@ namespace GestionCarniceria.Infra.Data.Configurations
                    .WithMany(p => p.PriceHistory)
                    .HasForeignKey(ph => ph.ProductId)
                    .OnDelete(DeleteBehavior.Restrict);
+            builder.Property(ph => ph.PricePerKg)
+                   .HasColumnType("decimal(18,2)")
+                   .IsRequired();
         }
     }
 }

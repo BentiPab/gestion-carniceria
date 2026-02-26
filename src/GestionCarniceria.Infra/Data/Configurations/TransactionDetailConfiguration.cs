@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace GestionCarniceria.Infra.Data.Configurations
 {
-    public class PurchaseDetailConfiguration : IEntityTypeConfiguration<PurchaseDetail>
+    public class TransactionDetailConfiguration : IEntityTypeConfiguration<TransactionDetail>
     {
-        public void Configure(EntityTypeBuilder<PurchaseDetail> builder)
+        public void Configure(EntityTypeBuilder<TransactionDetail> builder)
         {
             builder.HasOne(pd => pd.Purchase)
                    .WithMany(p => p.PurchaseDetails)
