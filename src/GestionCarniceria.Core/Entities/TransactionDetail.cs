@@ -3,11 +3,11 @@
     public class TransactionDetail : BaseEntity
     {
 
-        public int? PurchaseId { get; set; }
+        public Guid? PurchaseId { get; set; }
         public Purchase? Purchase { get; set; }
-        public int? SaleId { get; set; }
+        public Guid? SaleId { get; set; }
         public Sale? Sale { get; set; }
-        public int ProductId { get; set; }
+        public Guid ProductId { get; set; }
         public Product Product { get; set; } = null!;
 
         public double QuantityInKg { get; set; }

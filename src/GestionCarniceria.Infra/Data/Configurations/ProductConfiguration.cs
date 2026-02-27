@@ -13,13 +13,12 @@ namespace GestionCarniceria.Infra.Data.Configurations
             builder.HasKey(p => p.Id);
 
 
-            builder.Property(p => p.PricePerKg)
-                .HasColumnType("decimal(18,2)")
-                .IsRequired();
-
             builder.Property(p => p.Name)
                 .HasMaxLength(100)
                 .IsRequired();
+
+            builder.HasIndex(b => b.Name)
+            .IsUnique();
 
             builder.HasMany(p => p.PurchaseDetails)
                 .WithOne(pd => pd.Product)

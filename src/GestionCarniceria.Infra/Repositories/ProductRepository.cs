@@ -19,13 +19,6 @@ namespace GestionCarniceria.Infra.Repositories
                 .ToListAsync();
         }
 
-        public async Task<IEnumerable<Product>> GetProductsInStockAsync(double minimumStock = 0)
-        {
-            return await _context.Products
-                .Where(p => p.StockInKg <= minimumStock)
-                .ToListAsync();
-        }
-
 
     }
 }

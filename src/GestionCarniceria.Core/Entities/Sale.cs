@@ -5,7 +5,7 @@
 
         public DateTime SaleDate { get; set; }
         public decimal TotalAmount { get; set; }
-        public int BuyerId { get; set; }
+        public Guid BuyerId { get; set; }
         public Branch Buyer { get; set; } = null!;
         public string TruckLicensePlate { get; set; } = string.Empty;
 
