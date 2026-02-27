@@ -19,28 +19,25 @@ public static class BranchEndpoints
             return Results.Ok(branches);
         });
 
-        // GET: /api/branches/{id}
         group.MapGet("/{id:guid}", async (Guid id, IBranchService branchService) =>
         {
             var branch = await branchService.GetByIdAsync(id);
             return branch is not null ? Results.Ok(branch) : Results.NotFound();
         });
 
-        // POST: /api/branches
         group.MapPost("/", async ([FromBody] BranchCreateDto newBranch, IBranchService branchService) =>
         {
             var createdBranch = await branchService.CreateBranchAsync(newBranch);
             return Results.Created($"/api/branches/{createdBranch.Id}", createdBranch);
         }).WithValidation<BranchCreateDto>();
 
-        // PUT: /api/branches/{id}
+
         group.MapPut("/{id:guid}", async (Guid id, [FromBody] BranchUpdateDto updatedBranch, IBranchService branchService) =>
         {
             var isUpdated = await branchService.UpdateBranchAsync(id, updatedBranch);
             return isUpdated ? Results.NoContent() : Results.NotFound();
         }).WithValidation<BranchUpdateDto>();
 
-        // DELETE: /api/branches/{id}
         group.MapDelete("/{id:guid}", async (Guid id, IBranchService branchService) =>
         {
             var isDeleted = await branchService.DeleteAsync(id);
