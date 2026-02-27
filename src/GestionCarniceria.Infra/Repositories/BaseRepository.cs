@@ -23,12 +23,13 @@ namespace GestionCarniceria.Infra.Repositories
             return entity;
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task DeleteAsync(Guid id)
         {
             var entity = await GetByIdAsync(id);
             if (entity != null)
             {
-                _entities.Remove(entity);
+                entity.Deleted = true;
+                _entities.Update(entity);
                 await _context.SaveChangesAsync();
             }
         }
@@ -38,7 +39,7 @@ namespace GestionCarniceria.Infra.Repositories
             return await _entities.ToListAsync();
         }
 
-        public async Task<T> GetByIdAsync(int id)
+        public async Task<T> GetByIdAsync(Guid id)
         {
             var entity = await _entities.FindAsync(id);
             if (entity == null)

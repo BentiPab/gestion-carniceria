@@ -15,10 +15,15 @@ namespace GestionCarniceria.Infra.Data.Configurations
 
             builder.Property(b => b.Code)
                 .IsRequired();
+            builder.HasIndex(b => b.Code)
+            .IsUnique();
 
             builder.Property(b => b.Name)
                 .HasMaxLength(100)
                 .IsRequired();
+            builder.HasIndex(b => b.Name)
+                .IsUnique();
+
 
             builder.HasMany(b => b.Sales)
                 .WithOne(s => s.Buyer)

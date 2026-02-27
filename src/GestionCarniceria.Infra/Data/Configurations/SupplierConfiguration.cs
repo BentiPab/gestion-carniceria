@@ -10,6 +10,9 @@ namespace GestionCarniceria.Infra.Data.Configurations
         {
             builder.HasKey(p => p.Id);
 
+            builder.HasIndex(b => b.Name)
+            .IsUnique();
+
             builder.HasMany(s => s.Purchases)
                    .WithOne(p => p.Supplier)
                    .HasForeignKey(p => p.SupplierId)

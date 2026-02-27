@@ -6,7 +6,7 @@
         public DateTime PurchaseDate { get; set; }
         public decimal TotalAmount { get; set; }
 
-        public int SupplierId { get; set; }
+        public Guid SupplierId { get; set; }
         public Supplier Supplier { get; set; } = null!;
 
         public ICollection<TransactionDetail> PurchaseDetails { get; set; } = new List<TransactionDetail>();
